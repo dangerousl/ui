@@ -182,7 +182,7 @@ info now buildIdentifier hook hookBuilds =
             error "failed to fetch a build for this hook"
 
         Loading ->
-            div [ class "loading" ] [ Util.smallLoaderWithText "loading build..." ]
+            div [ class "loading" ] [ Util.smallLoaderWithText "loading hook info..." ]
 
         Success b ->
             build now buildIdentifier b
