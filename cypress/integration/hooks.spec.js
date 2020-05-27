@@ -99,33 +99,33 @@ context('Hooks', () => {
           beforeEach(() => {
             cy.get('@firstHook').click();
           });
-          context('build', () => {
-            beforeEach(() => {
-              cy.get('@firstHook').within(() => {
-                cy.get('.info').as('build');
-              });
-            });
-            it('should show number', () => {
-              cy.get('@build').should('be.visible').contains('build:');
-              cy.get('@build')
-                .should('be.visible')
-                .contains('github/octocat/3');
-            });
-            it('build number should redirect to build page', () => {
-              cy.get('@build').within(() => {
-                cy.get('[data-test=build-link]').click();
-                cy.location('pathname').should('eq', '/github/octocat/3');
-              });
-            });
-            it('should be running', () => {
-              cy.get('@build')
-                .get('.hook-build-status')
-                .should('have.class', '-running');
-            });
-            it('should show duration', () => {
-              cy.get('@build').contains('duration');
-            });
-          });
+          // context('build', () => {
+          //   beforeEach(() => {
+          //     cy.get('@firstHook').within(() => {
+          //       cy.get('.info').as('build');
+          //     });
+          //   });
+          //   it('should show number', () => {
+          //     cy.get('@build').should('be.visible').contains('build:');
+          //     cy.get('@build')
+          //       .should('be.visible')
+          //       .contains('github/octocat/3');
+          //   });
+          //   it('build number should redirect to build page', () => {
+          //     cy.get('@build').within(() => {
+          //       cy.get('[data-test=build-link]').click();
+          //       cy.location('pathname').should('eq', '/github/octocat/3');
+          //     });
+          //   });
+          //   it('should be running', () => {
+          //     cy.get('@build')
+          //       .get('.hook-build-status')
+          //       .should('have.class', '-running');
+          //   });
+          //   it('should show duration', () => {
+          //     cy.get('@build').contains('duration');
+          //   });
+          // });
         });
       });
       context('failure', () => {
